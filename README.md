@@ -3,7 +3,7 @@
 
 
 # Windows
-[Configurar pelo Windows](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/config.linux.md)
+[Configurar pelo Windows](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/config.windows.md)
 
 # Linux
-[Configurar pelo Linux](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/config.windows.md)
+[Configurar pelo Linux](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/config.linux.md)
