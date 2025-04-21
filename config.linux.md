@@ -24,6 +24,7 @@ Este repositório fornece um guia completo e atualizado para configurar seu ambi
 - Android Studio + SDK
 - Node.js LTS
 - Java JDK 17+
+- Gradle 8+
 
 ---
 
