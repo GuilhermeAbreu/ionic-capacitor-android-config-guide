@@ -2,9 +2,9 @@
 🛠️ Configuração completa do ambiente para desenvolvimento de aplicativos Android com Ionic + Angular (standalone) e Capacitor no Linux. Inclui instalação do Node.js, Java, Android Studio, SDKs, variáveis de ambiente.
 
 
-# 🚀 Setup Android com Ionic + Angular (Standalone) e Capacitor
+# 🚀 Setup Android com Ionic + Angular e Capacitor
 
-Este repositório fornece um guia completo e atualizado para configurar seu ambiente de desenvolvimento Android com **Ionic + Angular (modo standalone)** usando **Capacitor** no Linux (Ubuntu e derivados).
+Este repositório fornece um guia completo e atualizado para configurar seu ambiente de desenvolvimento Android com **Ionic + Angular** usando **Capacitor** no Linux (Ubuntu e derivados).
 
 ---
 
@@ -31,87 +31,89 @@ Este repositório fornece um guia completo e atualizado para configurar seu ambi
 
 ### 1. Instalar Node.js
 
+- [NodeJs Oficial - Arquivo Tar.xz](https://nodejs.org/)
+
+Ou instalar via Terminal
 ```bash
 sudo apt update
-sudo apt install curl -y
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install -y nodejs
----
+sudo apt install nodejs
+```
+## 2. Instalar o Java JDK
 
-2. Instalar Ionic CLI
-bash
-Copiar
-Editar
-npm install -g @ionic/cli
-3. Instalar o Java JDK
-bash
-Copiar
-Editar
-sudo apt install openjdk-17-jdk -y
-4. Baixar e instalar o Android Studio
+Recomendo fortemente o uso do [SDKMAN!](https://sdkman.io/), um gerenciador de versões que facilita a instalação e troca de ferramentas como o Java e o Gradle.
+
+Com o tempo, o Capacitor pode exigir versões específicas dessas ferramentas, e o SDKMAN permite gerenciar isso com muito mais praticidade.
+
+🔧 Ainda assim, nada impede que você instale tudo manualmente, se preferir.
+
+
+## 4. Baixar e instalar o Android Studio
 Acesse: https://developer.android.com/studio
 
-Extraia e execute:
+***
+### Importante
+O Android Studio será utilizado apenas para algumas configurações iniciais — como instalação dos SDKs, build tools e emuladores.
 
-bash
-Copiar
-Editar
+Isso pode agilizar o processo de setup para quem está começando. Porém, não será utilizado diretamente no desenvolvimento do app.
+
+Caso você já tenha familiaridade com a linha de comando do Android (via sdkmanager, por exemplo), também é totalmente possível configurar tudo manualmente pelo terminal ou baixar os componentes de forma independente.
+Extraia e execute:
+***
+
+```bash
+#descompactar arquivo
 tar -xvf android-studio-*.tar.gz
+
+#mover pasta
 sudo mv android-studio /opt
+
+#executar
 /opt/android-studio/bin/studio.sh
-5. Configurar variáveis de ambiente
+```
+***De começo ele pode pedir para instalar alguns pacotes inicias***
+
+### Download componentes no android studio
+![img](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/image/tela-inicial.jpeg)
+
+Caso ja tenha o android configurado com um projeto aberto
+![img](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/image/tela-projeto-aberto.jpeg)
+
+Download api, pode selecionar a escolha no meu caso estou usando a 15.
+![img](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/image/download-api-android.jpeg)
+
+Download de sdk para desenvolvimento e rodar o projeto no android
+![img](https://github.com/GuilhermeAbreu/ionic-capacitor-android-config-guide/blob/main/image/download-sdk.jpeg)
+
+## 5. Configurar variáveis de ambiente
+
+
 Adicione ao final do seu ~/.bashrc:
 
-bash
-Copiar
-Editar
+```bash
+
+#Java path
+export JAVA_HOME
+
+#Aqui será a path onde foi instalado os Sdk, veja nas imagens a cima o local.
+#mas pode ser customizado, no meu caso está na minha pasta pessoal.
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools
+
+#Java path bin
+export PATH=$PATH:$JAVA_HOME/bin
+```
 E ative com:
 
-bash
-Copiar
-Editar
+```bash
 source ~/.bashrc
-6. Instalar dependências do Capacitor
-bash
-Copiar
-Editar
-npm install @capacitor/android
-7. Criar novo projeto (exemplo)
-bash
-Copiar
-Editar
-ionic start meuApp blank --type=angular
-cd meuApp
-npx cap add android
-npx cap open android
-📱 Como gerar um APK
-No Android Studio:
-
-Build > Build Bundle(s) / APK(s) > Build APK
-
-🧠 Dica
-Se for usar dispositivos físicos:
-
-Ative o modo desenvolvedor e depuração USB
-
-Conecte via cabo USB
-
-Confirme a permissão no Android
-
-📌 Licença
-Este repositório é open-source sob a MIT License.
+```
 
 👨‍💻 Autor
-Desenvolvido por [Seu Nome] — contribuições e melhorias são bem-vindas!
+Desenvolvido por Guilherme Abreu — contribuições e melhorias são bem-vindas!
 
-yaml
-Copiar
-Editar
-
----
-
-Se quiser, posso gerar uma **versão com badges**, emojis ou em inglês. Quer que eu crie também uma versão com imagem/capa pro repositório?
